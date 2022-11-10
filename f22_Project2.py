@@ -1,3 +1,8 @@
+# Name: Jesse Goodman
+# Email: jessego@umich.edu
+# Student ID: 23346332
+# Collaborators: Emily Vanek, Jack Basner
+
 from xml.sax import parseString
 from bs4 import BeautifulSoup
 import re
