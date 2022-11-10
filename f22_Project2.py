@@ -51,7 +51,6 @@ def get_listings_from_search_results(html_file):
     return listings
     
     
-
 def get_listing_information(listing_id):
     """
     Write a function to return relevant information in a tuple from an Airbnb listing id.
@@ -110,8 +109,6 @@ def get_listing_information(listing_id):
     )
     
 
-
-
 def get_detailed_listing_database(html_file):
     """
     Write a function that calls the above two functions in order to return
@@ -130,6 +127,7 @@ def get_detailed_listing_database(html_file):
     for listing in listings:
         detailed_database.append(listing + get_listing_information(listing[2]))
     return detailed_database
+
 
 def write_csv(data, filename):
     """
