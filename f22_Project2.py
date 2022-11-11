@@ -151,7 +151,14 @@ def write_csv(data, filename):
 
     This function should not return anything.
     """
-    pass
+    headers = ['Listing Title','Cost','Listing ID','Policy Number','Place Type','Number of Bedrooms']
+    sorted_data = sorted(data, key = lambda x:x[1])
+    with open(filename, 'w') as csvfile:
+        csvwriter = csv.writer(csvfile)
+        csvwriter.writerow(headers)
+        for tuple in sorted_data:
+            csvwriter.writerow(list(tuple))
+
 
 
 def check_policy_numbers(data):
@@ -273,12 +280,14 @@ class TestCases(unittest.TestCase):
         # check that there are 21 lines in the csv
         self.assertEqual(len(csv_lines), 21)
         # check that the header row is correct
-
+        headers = ['Listing Title','Cost','Listing ID','Policy Number','Place Type','Number of Bedrooms']
+        self.assertEqual(csv_lines[0], headers)
         # check that the next row is Private room in Mission District,82,51027324,Pending,Private Room,1
-
+        first_row_correct = ['Private room in Mission District','82','51027324','Pending','Private Room','1']
+        self.assertEqual(csv_lines[1], first_row_correct)
         # check that the last row is Apartment in Mission District,399,28668414,Pending,Entire Room,2
-
-        pass
+        last_row_correct = ['Apartment in Mission District','399','28668414','Pending','Entire Room','2']
+        self.assertEqual(csv_lines[-1], last_row_correct)
 
     def test_check_policy_numbers(self):
         # call get_detailed_listing_database on "html_files/mission_district_search_results.html"
