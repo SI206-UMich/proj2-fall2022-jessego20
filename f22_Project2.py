@@ -68,7 +68,6 @@ def get_listing_information(listing_id):
                 "Shared Room": the listing subtitle has the word "shared" in it
                 "Entire Room": the listing subtitle has neither the word "private" nor "shared" in it
         int - Number of bedrooms
-.
     (
         policy number,
         place type,
