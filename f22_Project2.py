@@ -221,7 +221,6 @@ def extra_credit(listing_id):
         reviews = review_tables[i].find_all('td', role='button')
         yearly_reviews[year] += len(reviews)
     
-    print(yearly_reviews)
     num_reviews = sorted(yearly_reviews.values(), reverse = True)
     if num_reviews[0] > 90:
         return False
